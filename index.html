@@ -1,0 +1,1813 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elegant Events - Reservar Salón Online | Decoración de Eventos | Bodas y Fiestas Elegantes</title>
+    <meta name="description" content="Reserva tu salón de eventos online. Decoración personalizada para bodas, cumpleaños, eventos empresariales. Paquetes premium con servicio completo.">
+    <meta name="keywords" content="reservar salón online, decoración de eventos, bodas y fiestas elegantes, salón de eventos, decoración personalizada">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fafafa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #d4af37, #f4e4bc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #d4af37;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(135deg, #d4af37, #f4e4bc);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23f8f9fa;stop-opacity:1" /><stop offset="100%" style="stop-color:%23e9ecef;stop-opacity:1" /></linearGradient></defs><rect width="1200" height="800" fill="url(%23grad1)"/><circle cx="200" cy="150" r="100" fill="%23d4af37" opacity="0.1"/><circle cx="1000" cy="600" r="150" fill="%23f4e4bc" opacity="0.1"/><rect x="300" y="200" width="600" height="400" rx="20" fill="white" opacity="0.8"/><text x="600" y="380" text-anchor="middle" font-family="serif" font-size="24" fill="%23333">Elegant Event Hall</text><circle cx="450" cy="320" r="8" fill="%23d4af37"/><circle cx="750" cy="320" r="8" fill="%23d4af37"/><rect x="350" y="450" width="500" height="60" rx="30" fill="%23d4af37" opacity="0.2"/></svg>');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(212, 175, 55, 0.1), rgba(244, 228, 188, 0.1));
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { opacity: 0.1; }
+            50% { opacity: 0.3; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: white;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #d4af37, #f4e4bc);
+            color: #333;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            border: 2px solid rgba(212, 175, 55, 0.5);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(212, 175, 55, 0.1);
+            border-color: #d4af37;
+            transform: translateY(-2px);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 3rem;
+            color: #333;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(135deg, #d4af37, #f4e4bc);
+        }
+
+        .section-title p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Booking Section */
+        .booking {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            margin: 2rem 0;
+        }
+
+        .booking-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .calendar-container {
+            position: relative;
+        }
+
+        .calendar {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 2rem;
+            border: 1px solid #e9ecef;
+        }
+
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 0.5rem;
+        }
+
+        .calendar-day {
+            padding: 0.8rem;
+            text-align: center;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .calendar-day:hover {
+            background: rgba(212, 175, 55, 0.1);
+            border-color: #d4af37;
+        }
+
+        .calendar-day.available {
+            background: rgba(40, 167, 69, 0.1);
+            color: #28a745;
+        }
+
+        .calendar-day.booked {
+            background: rgba(220, 53, 69, 0.1);
+            color: #dc3545;
+            cursor: not-allowed;
+        }
+
+        .calendar-day.selected {
+            background: linear-gradient(135deg, #d4af37, #f4e4bc);
+            color: white;
+        }
+
+        .booking-form {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group select {
+            padding: 1rem;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #d4af37;
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+        }
+
+        /* Decorations Gallery */
+        .decorations {
+            background: linear-gradient(135deg, #f8f9fa, #ffffff);
+        }
+
+        .decoration-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .decoration-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .decoration-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .decoration-image {
+            height: 200px;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .decoration-image::before {
+            content: attr(data-theme);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #666;
+            text-align: center;
+        }
+
+        .decoration-content {
+            padding: 2rem;
+        }
+
+        .decoration-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .decoration-content p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .decoration-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .feature-tag {
+            background: rgba(212, 175, 55, 0.1);
+            color: #d4af37;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Pricing */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card.featured {
+            background: linear-gradient(135deg, #d4af37, #f4e4bc);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .pricing-card.featured .pricing-features li {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .pricing-card.featured:hover {
+            transform: translateY(-10px) scale(1.05);
+        }
+
+        .pricing-header h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .pricing-price {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-features li {
+            padding: 0.5rem 0;
+            color: #666;
+        }
+
+        .pricing-features li::before {
+            content: '✓';
+            color: #28a745;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        .pricing-card.featured .pricing-features li::before {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: linear-gradient(135deg, #f8f9fa, #ffffff);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 4rem;
+            color: #d4af37;
+            font-family: serif;
+        }
+
+        .testimonial-text {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #d4af37, #f4e4bc);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        .author-info h4 {
+            margin-bottom: 0.3rem;
+            color: #333;
+        }
+
+        .author-info p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Contact */
+        .contact {
+            background: white;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, #f8f9fa, #ffffff);
+            padding: 3rem;
+            border-radius: 20px;
+        }
+
+        .contact-form {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .contact-form .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-form textarea {
+            padding: 1rem;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            font-size: 1rem;
+            min-height: 120px;
+            resize: vertical;
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+        }
+
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: #d4af37;
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+        }
+
+        /* Chat Widget */
+        .chat-widget {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .chat-button {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #d4af37, #f4e4bc);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .chat-button:hover {
+            transform: scale(1.1);
+        }
+
+        .chat-popup {
+            position: absolute;
+            bottom: 80px;
+            right: 0;
+            width: 350px;
+            height: 500px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.2);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .chat-header {
+            background: linear-gradient(135deg, #d4af37, #f4e4bc);
+            padding: 1rem;
+            color: white;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 1rem;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .chat-message {
+            padding: 0.8rem 1rem;
+            border-radius: 15px;
+            max-width: 80%;
+        }
+
+        .chat-message.bot {
+            background: #f8f9fa;
+            align-self: flex-start;
+        }
+
+        .chat-message.user {
+            background: linear-gradient(135deg, #d4af37, #f4e4bc);
+            color: white;
+            align-self: flex-end;
+        }
+
+        .chat-input-container {
+            padding: 1rem;
+            border-top: 1px solid #e9ecef;
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 0.8rem;
+            border: 1px solid #e9ecef;
+            border-radius: 20px;
+            outline: none;
+        }
+
+        .chat-send {
+            padding: 0.8rem 1rem;
+            background: linear-gradient(135deg, #d4af37, #f4e4bc);
+            border: none;
+            border-radius: 20px;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #d4af37;
+        }
+
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #d4af37;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #555;
+            color: #ccc;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 3rem;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 600px;
+            position: relative;
+            animation: modalSlideIn 0.3s ease-out;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #666;
+            transition: color 0.3s ease;
+        }
+
+        .modal-close:hover {
+            color: #d4af37;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .booking-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .pricing-card.featured {
+                transform: none;
+            }
+
+            .pricing-card.featured:hover {
+                transform: translateY(-10px);
+            }
+
+            .chat-popup {
+                width: calc(100vw - 40px);
+                right: -10px;
+            }
+
+            .decoration-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .booking,
+            .contact-info,
+            .modal-content {
+                padding: 2rem;
+            }
+
+            .btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
+            }
+
+            .calendar {
+                padding: 1rem;
+            }
+
+            .calendar-day {
+                padding: 0.6rem 0.3rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(212, 175, 55, 0.3);
+            border-radius: 50%;
+            border-top-color: #d4af37;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Success Message */
+        .success-message {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-top: 1rem;
+            text-align: center;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">Elegant Events</div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#reservas">Reservas</a></li>
+                <li><a href="#decoraciones">Decoraciones</a></li>
+                <li><a href="#precios">Precios</a></li>
+                <li><a href="#testimonios">Testimonios</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <button class="mobile-menu">☰</button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>Haz de tu evento una experiencia inolvidable</h1>
+            <p>Salones elegantes con decoración personalizada para cada ocasión especial</p>
+            <div class="hero-buttons">
+                <a href="#reservas" class="btn btn-primary">Reserva tu fecha</a>
+                <button class="btn btn-secondary" onclick="openModal('quoteModal')">Cotiza tu evento</button>
+                <a href="#decoraciones" class="btn btn-secondary">Explora decoraciones</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section id="reservas" class="container">
+        <div class="section-title">
+            <h2>Reserva Online</h2>
+            <p>Selecciona tu fecha y horario preferido con nuestro sistema de reservas en tiempo real</p>
+        </div>
+        <div class="booking">
+            <div class="booking-grid">
+                <div class="calendar-container">
+                    <div class="calendar">
+                        <div class="calendar-header">
+                            <button id="prevMonth">‹</button>
+                            <h3 id="currentMonth">Diciembre 2024</h3>
+                            <button id="nextMonth">›</button>
+                        </div>
+                        <div class="calendar-grid" id="calendarGrid">
+                            <!-- Calendar days will be generated by JavaScript -->
+                        </div>
+                        <div style="margin-top: 1rem; font-size: 0.9rem;">
+                            <span style="color: #28a745;">● Disponible</span>
+                            <span style="color: #dc3545; margin-left: 1rem;">● Ocupado</span>
+                            <span style="color: #d4af37; margin-left: 1rem;">● Seleccionado</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="booking-form">
+                    <h3>Completa tu Reserva</h3>
+                    <div class="form-group">
+                        <label for="eventType">Tipo de Evento</label>
+                        <select id="eventType">
+                            <option value="">Selecciona tipo de evento</option>
+                            <option value="boda">Boda</option>
+                            <option value="cumpleanos">Cumpleaños</option>
+                            <option value="empresa">Evento Empresarial</option>
+                            <option value="graduacion">Graduación</option>
+                            <option value="aniversario">Aniversario</option>
+                            <option value="infantil">Fiesta Infantil</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="guestCount">Número de Invitados</label>
+                        <select id="guestCount">
+                            <option value="">Selecciona cantidad</option>
+                            <option value="50">50-100 personas</option>
+                            <option value="100">100-150 personas</option>
+                            <option value="150">150-200 personas</option>
+                            <option value="200">200+ personas</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="customerName">Nombre Completo</label>
+                        <input type="text" id="customerName" placeholder="Tu nombre completo">
+                    </div>
+                    <div class="form-group">
+                        <label for="customerPhone">Teléfono</label>
+                        <input type="tel" id="customerPhone" placeholder="Tu número de teléfono">
+                    </div>
+                    <div class="form-group">
+                        <label for="customerEmail">Email</label>
+                        <input type="email" id="customerEmail" placeholder="tu@email.com">
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="submitBooking()" style="width: 100%;">
+                        Confirmar Reserva
+                    </button>
+                    <div id="bookingSuccess" class="success-message">
+                        ¡Reserva confirmada! Te contactaremos pronto para confirmar los detalles.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Decorations Gallery -->
+    <section id="decoraciones" class="decorations">
+        <div class="container">
+            <div class="section-title">
+                <h2>Decoraciones Temáticas</h2>
+                <p>Transforma tu evento con nuestras decoraciones personalizadas para cada ocasión</p>
+            </div>
+            <div class="decoration-grid">
+                <div class="decoration-card" onclick="showDecorationDetails('bodas')">
+                    <div class="decoration-image" style="background: linear-gradient(135deg, #fff5f5, #ffe0e6), url('data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 300 200&quot;><rect width=&quot;300&quot; height=&quot;200&quot; fill=&quot;%23fff5f5&quot;/><circle cx=&quot;150&quot; cy=&quot;100&quot; r=&quot;60&quot; fill=&quot;none&quot; stroke=&quot;%23d4af37&quot; stroke-width=&quot;3&quot;/><path d=&quot;M130 80 Q150 60 170 80 Q150 100 130 80&quot; fill=&quot;%23ff69b4&quot; opacity=&quot;0.7&quot;/><circle cx=&quot;120&quot; cy=&quot;120&quot; r=&quot;8&quot; fill=&quot;%23d4af37&quot;/><circle cx=&quot;180&quot; cy=&quot;120&quot; r=&quot;8&quot; fill=&quot;%23d4af37&quot;/><text x=&quot;150&quot; y=&quot;160&quot; text-anchor=&quot;middle&quot; font-size=&quot;14&quot; fill=&quot;%23333&quot;>Bodas Elegantes</text></svg>'); background-size: cover;">
+                    </div>
+                    <div class="decoration-content">
+                        <h3>Bodas Elegantes</h3>
+                        <p>Decoración romántica con flores naturales, luces cálidas y elementos dorados para el día más especial.</p>
+                        <div class="decoration-features">
+                            <span class="feature-tag">Flores naturales</span>
+                            <span class="feature-tag">Luces LED</span>
+                            <span class="feature-tag">Centros de mesa</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="decoration-card" onclick="showDecorationDetails('cumpleanos')">
+                    <div class="decoration-image" style="background: linear-gradient(135deg, #fff3e0, #ffcc02), url('data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 300 200&quot;><rect width=&quot;300&quot; height=&quot;200&quot; fill=&quot;%23fff3e0&quot;/><rect x=&quot;100&quot; y=&quot;80&quot; width=&quot;100&quot; height=&quot;80&quot; rx=&quot;10&quot; fill=&quot;%23ffcc02&quot;/><circle cx=&quot;150&quot; cy=&quot;70&quot; r=&quot;5&quot; fill=&quot;%23ff6b35&quot;/><path d=&quot;M145 65 Q150 55 155 65&quot; fill=&quot;none&quot; stroke=&quot;%23ff6b35&quot; stroke-width=&quot;2&quot;/><circle cx=&quot;80&quot; cy=&quot;60&quot; r=&quot;15&quot; fill=&quot;%23ff69b4&quot; opacity=&quot;0.8&quot;/><circle cx=&quot;220&quot; cy=&quot;60&quot; r=&quot;15&quot; fill=&quot;%2300bcd4&quot; opacity=&quot;0.8&quot;/><text x=&quot;150&quot; y=&quot;180&quot; text-anchor=&quot;middle&quot; font-size=&quot;14&quot; fill=&quot;%23333&quot;>Cumpleaños</text></svg>'); background-size: cover;">
+                    </div>
+                    <div class="decoration-content">
+                        <h3>Cumpleaños Festivos</h3>
+                        <p>Decoración colorida y alegre con globos, banderines y temáticas personalizadas según la edad.</p>
+                        <div class="decoration-features">
+                            <span class="feature-tag">Globos metálicos</span>
+                            <span class="feature-tag">Banderines</span>
+                            <span class="feature-tag">Fotocall</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="decoration-card" onclick="showDecorationDetails('empresarial')">
+                    <div class="decoration-image" style="background: linear-gradient(135deg, #f8f9fa, #e9ecef), url('data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 300 200&quot;><rect width=&quot;300&quot; height=&quot;200&quot; fill=&quot;%23f8f9fa&quot;/><rect x=&quot;50&quot; y=&quot;80&quot; width=&quot;200&quot; height=&quot;60&quot; rx=&quot;10&quot; fill=&quot;%23343a40&quot;/><rect x=&quot;120&quot; y=&quot;100&quot; width=&quot;60&quot; height=&quot;20&quot; fill=&quot;%23d4af37&quot;/><circle cx=&quot;100&quot; cy=&quot;60&quot; r=&quot;5&quot; fill=&quot;%23007bff&quot;/><circle cx=&quot;200&quot; cy=&quot;60&quot; r=&quot;5&quot; fill=&quot;%23007bff&quot;/><text x=&quot;150&quot; y=&quot;180&quot; text-anchor=&quot;middle&quot; font-size=&quot;14&quot; fill=&quot;%23333&quot;>Eventos Corp.</text></svg>'); background-size: cover;">
+                    </div>
+                    <div class="decoration-content">
+                        <h3>Eventos Empresariales</h3>
+                        <p>Decoración profesional y sofisticada para conferencias, lanzamientos y eventos corporativos.</p>
+                        <div class="decoration-features">
+                            <span class="feature-tag">Branding corporativo</span>
+                            <span class="feature-tag">Proyección</span>
+                            <span class="feature-tag">Networking</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="decoration-card" onclick="showDecorationDetails('infantil')">
+                    <div class="decoration-image" style="background: linear-gradient(135deg, #e3f2fd, #81c784), url('data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 300 200&quot;><rect width=&quot;300&quot; height=&quot;200&quot; fill=&quot;%23e3f2fd&quot;/><circle cx=&quot;100&quot; cy=&quot;80&quot; r=&quot;25&quot; fill=&quot;%23ff69b4&quot; opacity=&quot;0.8&quot;/><circle cx=&quot;200&quot; cy=&quot;80&quot; r=&quot;25&quot; fill=&quot;%2300bcd4&quot; opacity=&quot;0.8&quot;/><path d=&quot;M150 120 Q130 100 150 80 Q170 100 150 120&quot; fill=&quot;%23ffcc02&quot;/><circle cx=&quot;80&quot; cy=&quot;150&quot; r=&quot;10&quot; fill=&quot;%2381c784&quot;/><circle cx=&quot;220&quot; cy=&quot;150&quot; r=&quot;10&quot; fill=&quot;%23ff6b35&quot;/><text x=&quot;150&quot; y=&quot;190&quot; text-anchor=&quot;middle&quot; font-size=&quot;14&quot; fill=&quot;%23333&quot;>Fiesta Infantil</text></svg>'); background-size: cover;">
+                    </div>
+                    <div class="decoration-content">
+                        <h3>Fiestas Infantiles</h3>
+                        <p>Decoración mágica y divertida con personajes, colores vibrantes y espacios de juego seguros.</p>
+                        <div class="decoration-features">
+                            <span class="feature-tag">Personajes</span>
+                            <span class="feature-tag">Zona de juegos</span>
+                            <span class="feature-tag">Dulcero</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="precios" class="container">
+        <div class="section-title">
+            <h2>Paquetes y Precios</h2>
+            <p>Planes diseñados para adaptarse a tu presupuesto y necesidades</p>
+        </div>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>Básico</h3>
+                    <div class="pricing-price">$850.000</div>
+                </div>
+                <ul class="pricing-features">
+                    <li>Salón por 6 horas</li>
+                    <li>Decoración simple</li>
+                    <li>Mesas y sillas (hasta 80 personas)</li>
+                    <li>Sonido básico</li>
+                    <li>Iluminación estándar</li>
+                    <li>Servicio de limpieza</li>
+                </ul>
+                <button class="btn btn-primary" onclick="selectPackage('basico', '850000')">Seleccionar</button>
+            </div>
+
+            <div class="pricing-card featured">
+                <div class="pricing-header">
+                    <h3>Premium</h3>
+                    <div class="pricing-price">$1.500.000</div>
+                </div>
+                <ul class="pricing-features">
+                    <li>Salón por 8 horas</li>
+                    <li>Decoración personalizada</li>
+                    <li>Mesas y sillas (hasta 120 personas)</li>
+                    <li>Sonido profesional + DJ</li>
+                    <li>Iluminación LED de colores</li>
+                    <li>Servicio de meseros</li>
+                    <li>Fotografía del evento (2 horas)</li>
+                </ul>
+                <button class="btn btn-secondary" onclick="selectPackage('premium', '1500000')" style="background: rgba(255,255,255,0.2); border: 2px solid white;">Más Popular</button>
+            </div>
+
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>Todo Incluido</h3>
+                    <div class="pricing-price">$2.800.000</div>
+                </div>
+                <ul class="pricing-features">
+                    <li>Salón por 10 horas</li>
+                    <li>Decoración de lujo personalizada</li>
+                    <li>Mesas y sillas (hasta 200 personas)</li>
+                    <li>Sonido + DJ + Banda en vivo</li>
+                    <li>Iluminación espectacular</li>
+                    <li>Servicio completo de meseros</li>
+                    <li>Fotografía y video profesional</li>
+                    <li>Catering incluido</li>
+                    <li>Coordinador de eventos</li>
+                </ul>
+                <button class="btn btn-primary" onclick="selectPackage('completo', '2800000')">Seleccionar</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonios" class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Lo que dicen nuestros clientes</h2>
+                <p>Miles de eventos exitosos nos respaldan</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"¡Increíble! La decoración de nuestra boda superó todas nuestras expectativas. El equipo es muy profesional y atento a cada detalle."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MF</div>
+                        <div class="author-info">
+                            <h4>María Fernández</h4>
+                            <p>Boda - Enero 2024</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Organizamos el evento de lanzamiento de nuestra empresa y quedamos fascinados. Todo salió perfecto y nuestros invitados quedaron impresionados."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">CG</div>
+                        <div class="author-info">
+                            <h4>Carlos García</h4>
+                            <p>Evento Empresarial - Marzo 2024</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"La fiesta de 15 años de mi hija fue un sueño hecho realidad. La decoración temática y la atención al cliente fueron excepcionales."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">LM</div>
+                        <div class="author-info">
+                            <h4>Laura Martínez</h4>
+                            <p>Quinceañera - Febrero 2024</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contacto" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contáctanos</h2>
+                <p>Estamos aquí para hacer realidad el evento de tus sueños</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Información de Contacto</h3>
+                    <div style="margin: 2rem 0;">
+                        <h4>📍 Dirección</h4>
+                        <p>Carrera 15 #28-45, Pasto, Nariño</p>
+                    </div>
+                    <div style="margin: 2rem 0;">
+                        <h4>📞 Teléfonos</h4>
+                        <p>+57 312 456 7890<br>+57 2 723 4567</p>
+                    </div>
+                    <div style="margin: 2rem 0;">
+                        <h4>✉️ Email</h4>
+                        <p>info@elegantevents.com</p>
+                    </div>
+                    <div style="margin: 2rem 0;">
+                        <h4>🕐 Horarios</h4>
+                        <p>Lun - Vie: 9:00 AM - 7:00 PM<br>Sáb: 9:00 AM - 5:00 PM</p>
+                    </div>
+                </div>
+                <form class="contact-form" onsubmit="submitContact(event)">
+                    <div class="form-group">
+                        <label for="contactName">Nombre Completo</label>
+                        <input type="text" id="contactName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contactEmail">Email</label>
+                        <input type="email" id="contactEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contactPhone">Teléfono</label>
+                        <input type="tel" id="contactPhone">
+                    </div>
+                    <div class="form-group">
+                        <label for="contactMessage">Mensaje</label>
+                        <textarea id="contactMessage" placeholder="Cuéntanos sobre tu evento..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Enviar Mensaje</button>
+                    <div id="contactSuccess" class="success-message">
+                        ¡Mensaje enviado! Te contactaremos pronto.
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Elegant Events</h3>
+                    <p>Creando experiencias inolvidables desde 2015. Tu evento perfecto nos inspira cada día.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Servicios</h3>
+                    <ul style="list-style: none;">
+                        <li><a href="#decoraciones">Bodas</a></li>
+                        <li><a href="#decoraciones">Cumpleaños</a></li>
+                        <li><a href="#decoraciones">Eventos Empresariales</a></li>
+                        <li><a href="#decoraciones">Fiestas Infantiles</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Enlaces Útiles</h3>
+                    <ul style="list-style: none;">
+                        <li><a href="#precios">Precios</a></li>
+                        <li><a href="#testimonios">Testimonios</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                        <li><a href="#">Política de Privacidad</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Síguenos</h3>
+                    <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+                        <a href="#" style="background: linear-gradient(135deg, #d4af37, #f4e4bc); padding: 0.5rem; border-radius: 50%; display: inline-block; width: 40px; height: 40px; text-align: center;">📘</a>
+                        <a href="#" style="background: linear-gradient(135deg, #d4af37, #f4e4bc); padding: 0.5rem; border-radius: 50%; display: inline-block; width: 40px; height: 40px; text-align: center;">📷</a>
+                        <a href="#" style="background: linear-gradient(135deg, #d4af37, #f4e4bc); padding: 0.5rem; border-radius: 50%; display: inline-block; width: 40px; height: 40px; text-align: center;">📱</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Elegant Events. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chat Widget -->
+    <div class="chat-widget">
+        <button class="chat-button" onclick="toggleChat()">💬</button>
+        <div class="chat-popup" id="chatPopup">
+            <div class="chat-header">
+                <h4>Chat en Vivo</h4>
+                <span style="cursor: pointer; float: right;" onclick="toggleChat()">✕</span>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="chat-message bot">
+                    ¡Hola! 👋 Soy Ana, tu asesora de eventos. ¿En qué puedo ayudarte hoy?
+                </div>
+            </div>
+            <div class="chat-input-container">
+                <input type="text" class="chat-input" id="chatInput" placeholder="Escribe tu mensaje..." onkeypress="handleChatKeypress(event)">
+                <button class="chat-send" onclick="sendMessage()">Enviar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modals -->
+    <div id="quoteModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal('quoteModal')">&times;</span>
+            <h2>Cotiza tu Evento</h2>
+            <form onsubmit="submitQuote(event)">
+                <div class="form-group">
+                    <label for="quoteEventType">Tipo de Evento</label>
+                    <select id="quoteEventType" required>
+                        <option value="">Selecciona tipo de evento</option>
+                        <option value="boda">Boda</option>
+                        <option value="cumpleanos">Cumpleaños</option>
+                        <option value="empresa">Evento Empresarial</option>
+                        <option value="graduacion">Graduación</option>
+                        <option value="aniversario">Aniversario</option>
+                        <option value="infantil">Fiesta Infantil</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="quoteDate">Fecha Preferida</label>
+                    <input type="date" id="quoteDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="quoteGuests">Número de Invitados</label>
+                    <input type="number" id="quoteGuests" placeholder="Ej: 100" required>
+                </div>
+                <div class="form-group">
+                    <label for="quoteName">Tu Nombre</label>
+                    <input type="text" id="quoteName" required>
+                </div>
+                <div class="form-group">
+                    <label for="quotePhone">Teléfono</label>
+                    <input type="tel" id="quotePhone" required>
+                </div>
+                <div class="form-group">
+                    <label for="quoteEmail">Email</label>
+                    <input type="email" id="quoteEmail" required>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Solicitar Cotización</button>
+                <div id="quoteSuccess" class="success-message">
+                    ¡Cotización enviada! Te enviaremos una propuesta personalizada pronto.
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="decorationModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal('decorationModal')">&times;</span>
+            <div id="decorationDetails"></div>
+        </div>
+    </div>
+
+    <script>
+        // Current date for calendar
+        const currentDate = new Date();
+        let displayedMonth = currentDate.getMonth();
+        let displayedYear = currentDate.getFullYear();
+
+        // Sample booked dates (in real app, this would come from backend)
+        const bookedDates = [
+            '2024-12-15', '2024-12-22', '2024-12-31',
+            '2025-01-05', '2025-01-14', '2025-01-20',
+            '2025-02-14', '2025-02-16', '2025-02-23'
+        ];
+
+        let selectedDate = null;
+
+        // Generate calendar
+        function generateCalendar() {
+            const monthNames = [
+                'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
+                'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
+            ];
+
+            document.getElementById('currentMonth').textContent = 
+                `${monthNames[displayedMonth]} ${displayedYear}`;
+
+            const firstDay = new Date(displayedYear, displayedMonth, 1);
+            const lastDay = new Date(displayedYear, displayedMonth + 1, 0);
+            const startingDayOfWeek = firstDay.getDay();
+            
+            const calendarGrid = document.getElementById('calendarGrid');
+            calendarGrid.innerHTML = '';
+
+            // Day headers
+            const dayHeaders = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'];
+            dayHeaders.forEach(day => {
+                const dayHeader = document.createElement('div');
+                dayHeader.textContent = day;
+                dayHeader.style.fontWeight = 'bold';
+                dayHeader.style.textAlign = 'center';
+                dayHeader.style.padding = '0.5rem';
+                dayHeader.style.color = '#666';
+                calendarGrid.appendChild(dayHeader);
+            });
+
+            // Empty cells for days before month starts
+            for (let i = 0; i < startingDayOfWeek; i++) {
+                const emptyDay = document.createElement('div');
+                emptyDay.className = 'calendar-day';
+                calendarGrid.appendChild(emptyDay);
+            }
+
+            // Days of the month
+            for (let day = 1; day <= lastDay.getDate(); day++) {
+                const dayElement = document.createElement('div');
+                dayElement.className = 'calendar-day';
+                dayElement.textContent = day;
+
+                const dateString = `${displayedYear}-${String(displayedMonth + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+                const dayOfWeek = new Date(displayedYear, displayedMonth, day).getDay();
+                
+                // Check if date is in the past
+                const isInPast = new Date(displayedYear, displayedMonth, day) < new Date().setHours(0,0,0,0);
+                
+                if (isInPast) {
+                    dayElement.style.opacity = '0.3';
+                    dayElement.style.cursor = 'not-allowed';
+                } else if (bookedDates.includes(dateString)) {
+                    dayElement.classList.add('booked');
+                } else if (dayOfWeek === 0 || dayOfWeek === 6) { // Weekend - more availability
+                    dayElement.classList.add('available');
+                    dayElement.onclick = () => selectDate(dateString, dayElement);
+                } else {
+                    dayElement.classList.add('available');
+                    dayElement.onclick = () => selectDate(dateString, dayElement);
+                }
+
+                calendarGrid.appendChild(dayElement);
+            }
+        }
+
+        function selectDate(dateString, element) {
+            // Remove previous selection
+            document.querySelectorAll('.calendar-day.selected').forEach(el => {
+                el.classList.remove('selected');
+                if (!bookedDates.includes(el.dataset.date)) {
+                    el.classList.add('available');
+                }
+            });
+
+            // Add selection to clicked date
+            element.classList.remove('available');
+            element.classList.add('selected');
+            element.dataset.date = dateString;
+            selectedDate = dateString;
+
+            // Update quote modal date if open
+            const quoteDate = document.getElementById('quoteDate');
+            if (quoteDate) {
+                quoteDate.value = dateString;
+            }
+        }
+
+        // Calendar navigation
+        document.getElementById('prevMonth').onclick = function() {
+            displayedMonth--;
+            if (displayedMonth < 0) {
+                displayedMonth = 11;
+                displayedYear--;
+            }
+            generateCalendar();
+        };
+
+        document.getElementById('nextMonth').onclick = function() {
+            displayedMonth++;
+            if (displayedMonth > 11) {
+                displayedMonth = 0;
+                displayedYear++;
+            }
+            generateCalendar();
+        };
+
+        // Initialize calendar
+        generateCalendar();
+
+        // Booking form submission
+        function submitBooking() {
+            const eventType = document.getElementById('eventType').value;
+            const guestCount = document.getElementById('guestCount').value;
+            const customerName = document.getElementById('customerName').value;
+            const customerPhone = document.getElementById('customerPhone').value;
+            const customerEmail = document.getElementById('customerEmail').value;
+
+            if (!selectedDate || !eventType || !guestCount || !customerName || !customerPhone || !customerEmail) {
+                alert('Por favor completa todos los campos y selecciona una fecha.');
+                return;
+            }
+
+            // Simulate booking submission
+            document.getElementById('bookingSuccess').style.display = 'block';
+            setTimeout(() => {
+                document.getElementById('bookingSuccess').style.display = 'none';
+            }, 5000);
+
+            // Reset form
+            document.getElementById('eventType').value = '';
+            document.getElementById('guestCount').value = '';
+            document.getElementById('customerName').value = '';
+            document.getElementById('customerPhone').value = '';
+            document.getElementById('customerEmail').value = '';
+        }
+
+        // Package selection
+        function selectPackage(packageType, price) {
+            openModal('quoteModal');
+            // Pre-populate some fields based on package selected
+            setTimeout(() => {
+                const quoteDate = document.getElementById('quoteDate');
+                if (selectedDate && quoteDate) {
+                    quoteDate.value = selectedDate;
+                }
+            }, 100);
+        }
+
+        // Decoration details
+        function showDecorationDetails(type) {
+            const decorationDetails = {
+                bodas: {
+                    title: 'Bodas Elegantes',
+                    images: [
+                        'Arcos florales con rosas blancas y doradas',
+                        'Centros de mesa con velas y cristales',
+                        'Camino de pétalos hacia el altar',
+                        'Iluminación cálida con luces LED'
+                    ],
+                    description: 'Transformamos tu día especial en un cuento de hadas con decoración romántica y elegante.',
+                    features: [
+                        'Flores naturales premium',
+                        'Arreglos florales personalizados',
+                        'Iluminación LED profesional',
+                        'Manteles de lino fino',
+                        'Cristalería elegante',
+                        'Caminos y alfombras',
+                        'Coordinación de colores'
+                    ],
+                    price: 'Desde $1.200.000'
+                },
+                cumpleanos: {
+                    title: 'Cumpleaños Festivos',
+                    images: [
+                        'Arco de globos temático',
+                        'Mesa de dulces decorada',
+                        'Photocall personalizado',
+                        'Decoración de mesa principal'
+                    ],
+                    description: 'Celebra tu cumpleaños con una decoración colorida y llena de alegría.',
+                    features: [
+                        'Globos metálicos y látex',
+                        'Banderines personalizados',
+                        'Mesa de dulces temática',
+                        'Photocall con props',
+                        'Decoración de sillas',
+                        'Centros de mesa festivos',
+                        'Iluminación colorida'
+                    ],
+                    price: 'Desde $650.000'
+                },
+                empresarial: {
+                    title: 'Eventos Empresariales',
+                    images: [
+                        'Escenario corporativo con branding',
+                        'Mesas de networking elegantes',
+                        'Zona de registro profesional',
+                        'Iluminación técnica especializada'
+                    ],
+                    description: 'Eventos corporativos profesionales que reflejan la imagen de tu empresa.',
+                    features: [
+                        'Branding corporativo',
+                        'Escenarios profesionales',
+                        'Sistemas audiovisuales',
+                        'Zonas de networking',
+                        'Registro de invitados',
+                        'Iluminación técnica',
+                        'Mobiliario ejecutivo'
+                    ],
+                    price: 'Desde $900.000'
+                },
+                infantil: {
+                    title: 'Fiestas Infantiles',
+                    images: [
+                        'Decoración temática de personajes',
+                        'Zona de juegos segura',
+                        'Mesa de dulces colorida',
+                        'Globos y figuras inflables'
+                    ],
+                    description: 'Fiestas mágicas que harán sonreír a los más pequeños.',
+                    features: [
+                        'Temáticas de personajes',
+                        'Zona de juegos',
+                        'Animación incluida',
+                        'Mesa de dulces',
+                        'Decoración colorida',
+                        'Mobiliario infantil',
+                        'Seguridad garantizada'
+                    ],
+                    price: 'Desde $750.000'
+                }
+            };
+
+            const details = decorationDetails[type];
+            const modalContent = `
+                <h2>${details.title}</h2>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 2rem 0;">
+                    <div>
+                        <h3>Galería de Ideas</h3>
+                        <div style="background: linear-gradient(135deg, #f8f9fa, #e9ecef); padding: 2rem; border-radius: 15px; margin-bottom: 1rem;">
+                            ${details.images.map(img => `<div style="margin-bottom: 1rem; padding: 1rem; background: white; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">📷 ${img}</div>`).join('')}
+                        </div>
+                    </div>
+                    <div>
+                        <h3>Incluye</h3>
+                        <ul style="list-style: none; padding: 0;">
+                            ${details.features.map(feature => `<li style="padding: 0.5rem 0; border-bottom: 1px solid #eee;">✓ ${feature}</li>`).join('')}
+                        </ul>
+                        <div style="background: linear-gradient(135deg, #d4af37, #f4e4bc); padding: 1.5rem; border-radius: 15px; margin-top: 2rem; text-align: center; color: white;">
+                            <h3>${details.price}</h3>
+                            <button onclick="openModal('quoteModal'); closeModal('decorationModal');" class="btn" style="background: rgba(255,255,255,0.9); color: #333; margin-top: 1rem;">Solicitar Cotización</button>
+                        </div>
+                    </div>
+                </div>
+                <p style="font-size: 1.1rem; color: #666; text-align: center; margin-top: 2rem;">${details.description}</p>
+            `;
+
+            document.getElementById('decorationDetails').innerHTML = modalContent;
+            openModal('decorationModal');
+        }
+
+        // Quote form submission
+        function submitQuote(event) {
+            event.preventDefault();
+            
+            const formData = {
+                eventType: document.getElementById('quoteEventType').value,
+                date: document.getElementById('quoteDate').value,
+                guests: document.getElementById('quoteGuests').value,
+                name: document.getElementById('quoteName').value,
+                phone: document.getElementById('quotePhone').value,
+                email: document.getElementById('quoteEmail').value
+            };
+
+            // Simulate quote submission
+            document.getElementById('quoteSuccess').style.display = 'block';
+            setTimeout(() => {
+                document.getElementById('quoteSuccess').style.display = 'none';
+                closeModal('quoteModal');
+                
+                // Reset form
+                document.getElementById('quoteEventType').value = '';
+                document.getElementById('quoteDate').value = '';
+                document.getElementById('quoteGuests').value = '';
+                document.getElementById('quoteName').value = '';
+                document.getElementById('quotePhone').value = '';
+                document.getElementById('quoteEmail').value = '';
+            }, 3000);
+        }
+
+        // Contact form submission
+        function submitContact(event) {
+            event.preventDefault();
+            
+            const formData = {
+                name: document.getElementById('contactName').value,
+                email: document.getElementById('contactEmail').value,
+                phone: document.getElementById('contactPhone').value,
+                message: document.getElementById('contactMessage').value
+            };
+
+            // Simulate contact submission
+            document.getElementById('contactSuccess').style.display = 'block';
+            setTimeout(() => {
+                document.getElementById('contactSuccess').style.display = 'none';
+                
+                // Reset form
+                document.getElementById('contactName').value = '';
+                document.getElementById('contactEmail').value = '';
+                document.getElementById('contactPhone').value = '';
+                document.getElementById('contactMessage').value = '';
+            }, 5000);
+        }
+
+        // Modal functions
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Chat functions
+        function toggleChat() {
+            const chatPopup = document.getElementById('chatPopup');
+            const isVisible = chatPopup.style.display === 'flex';
+            chatPopup.style.display = isVisible ? 'none' : 'flex';
+            
+            if (!isVisible) {
+                document.getElementById('chatInput').focus();
+            }
+        }
+
+        function handleChatKeypress(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+            
+            if (!message) return;
+
+            const messagesContainer = document.getElementById('chatMessages');
+            
+            // Add user message
+            const userMessage = document.createElement('div');
+            userMessage.className = 'chat-message user';
+            userMessage.textContent = message;
+            messagesContainer.appendChild(userMessage);
+
+            // Clear input
+            input.value = '';
+
+            // Simulate bot response
+            setTimeout(() => {
+                const botMessage = document.createElement('div');
+                botMessage.className = 'chat-message bot';
+                
+                // Simple responses based on keywords
+                if (message.toLowerCase().includes('precio') || message.toLowerCase().includes('costo')) {
+                    botMessage.textContent = 'Nuestros paquetes van desde $650.000 hasta $2.800.000. ¿Te gustaría que te envíe una cotización personalizada?';
+                } else if (message.toLowerCase().includes('fecha') || message.toLowerCase().includes('disponible')) {
+                    botMessage.textContent = 'Puedes ver nuestras fechas disponibles en el calendario de reservas. ¿Qué fecha tienes en mente?';
+                } else if (message.toLowerCase().includes('decoracion') || message.toLowerCase().includes('tema')) {
+                    botMessage.textContent = 'Tenemos decoraciones para bodas, cumpleaños, eventos empresariales y fiestas infantiles. ¿Cuál es tu evento?';
+                } else {
+                    botMessage.textContent = 'Gracias por contactarnos. Un asesor se comunicará contigo pronto. ¿Hay algo específico en lo que pueda ayudarte ahora?';
+                }
+                
+                messagesContainer.appendChild(botMessage);
+                messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            }, 1000);
+
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            const navLinks = document.querySelector('.nav-links');
+            if (navLinks.style.display === 'flex') {
+                navLinks.style.display = 'none';
+            } else {
+                navLinks.style.display = 'flex';
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '100%';
+                navLinks.style.left = '0';
+                navLinks.style.width = '100%';
+                navLinks.style.background = 'white';
+                navLinks.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+                navLinks.style.padding = '1rem';
+            }
+        });
+
+        // Close modals when clicking outside
+        window.addEventListener('click', function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 2px 30px rgba(0, 0, 0, 0.15)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            }
+        });
+
+        // Set minimum date for date inputs to today
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('quoteDate').min = today;
+
+        // Initialize tooltips and animations when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add entrance animations to elements as they come into view
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animation = 'fadeInUp 0.6s ease-out';
+                        entry.target.style.animationFillMode = 'both';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all sections and cards
+            document.querySelectorAll('section, .decoration-card, .pricing-card, .testimonial-card').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
